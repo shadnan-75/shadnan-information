@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shadnan | Techno Glitched Portfolio V3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background-color 0.6s, color 0.6s;
+    }
+
+    /* Default dark theme */
+    body.dark {
+      background-color: #010314;
+      color: #cbd5e1;
+    }
+
+    /* Light theme */
+    body.light {
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    /* Glitch */
+    .glitch {
+      position: relative;
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px var(--accent), -2px -2px var(--accent-alt); }
+      20% { text-shadow: -2px -2px var(--accent), 2px 2px var(--accent-alt); }
+      40%,100% { text-shadow: 2px 2px var(--accent), -2px -2px var(--accent-alt); }
+    }
+
+    .neon-border {
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    .hover-3d {
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-3d:hover {
+      transform: perspective(600px) rotateY(8deg) rotateX(6deg) scale(1.05);
+      box-shadow: 0 0 30px var(--accent);
+    }
+
+    /* Fade reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Typewriter */
+    .typewriter {
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+      width: 0;
+    }
+
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
+
+    /* Theme colors */
+    :root {
+      --accent: #00bfff;
+      --accent-alt: #0077ff;
+    }
+
+    .theme-blue {
+      --accent: #00bfff;
+      --accent-alt: #0077ff;
+    }
+    .theme-purple {
+      --accent: #9d4edd;
+      --accent-alt: #5a189a;
+    }
+    .theme-cyan {
+      --accent: #00ffff;
+      --accent-alt: #00bfa6;
+    }
+
+    .theme-btn {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .theme-btn:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+  </style>
+</head>
+<body class="dark theme-blue flex flex-col items-center text-center">
+
+  <canvas id="bg"></canvas>
+
+  <!-- Theme Control Buttons -->
+  <div class="fixed top-4 right-4 flex gap-2 z-10">
+    <button id="toggleTheme" class="theme-btn">🌗 Mode</button>
+    <button id="blueTheme" class="theme-btn">💙</button>
+    <button id="purpleTheme" class="theme-btn">💜</button>
+    <button id="cyanTheme" class="theme-btn">💠</button>
+  </div>
+
+  <!-- Hero -->
+  <section class="mt-20 reveal">
+    <h1 class="glitch">Shadnan Hossen</h1>
+    <p class="text-blue-400 mt-3 text-lg typewriter">Frontend Web Developer</p>
+  </section>
+
+  <!-- About -->
+  <section class="mt-20 w-11/12 md:w-2/3 neon-border p-6 rounded-2xl hover-3d reveal">
+    <h2 class="text-2xl mb-2 font-semibold">About Me</h2>
+    <p>I’m a passionate frontend developer who loves creating modern, responsive, and animated web experiences using HTML, Tailwind CSS, and JavaScript.</p>
+  </section>
+
+  <!-- Skills -->
+  <section class="mt-20 w-11/12 md:w-2/3 reveal">
+    <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+    <div class="flex flex-wrap justify-center gap-4">
+      <div class="neon-border px-5 py-3 rounded-lg hover-3d">HTML</div>
+      <div class="neon-border px-5 py-3 rounded-lg hover-3d">CSS</div>
+      <div class="neon-border px-5 py-3 rounded-lg hover-3d">Tailwind</div>
+      <div class="neon-border px-5 py-3 rounded-lg hover-3d">JavaScript</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="mt-20 w-11/12 md:w-2/3 reveal">
+    <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="neon-border p-4 rounded-xl hover-3d">
+        <h3 class="text-xl font-bold">1st Website</h3>
+        <p>I have developed a web project using HTML and Tailwind CSS. In this project, I used HTML to create the basic structure of the website and Tailwind CSS to design it with a modern and responsive layout. Tailwind helped me style the website quickly using utility classes without writing much custom CSS.</p>
+        <a href="https://shadnan-75.github.io/chyon/">View project</a>
+      </div>
+      <div class="neon-border p-4 rounded-xl hover-3d">
+        <h3 class="text-xl font-bold">2 nd website</h3>
+        <p>I have created a blog project using HTML, Bootstrap, and JavaScript. The website is fully responsive and user-friendly. I used HTML to structure the pages, Bootstrap to design and style the layout easily, and JavaScript to make the website interactive.</p>
+    <a href="https://shadnan-75.github.io/BLOG/">View project</a>  
+    </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="mt-20 w-11/12 md:w-2/3 mb-20 reveal">
+    <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
+    <form class="flex flex-col gap-4 neon-border p-6 rounded-xl hover-3d">
+      <input type="text" placeholder="Your Name" class="p-3 rounded bg-transparent border border-current focus:outline-none">
+      <input type="email" placeholder="Your Email" class="p-3 rounded bg-transparent border border-current focus:outline-none">
+      <textarea placeholder="Your Message" class="p-3 rounded bg-transparent border border-current focus:outline-none"></textarea>
+      <button type="button" id="sendBtn" class="py-2 rounded bg-[var(--accent)] hover:opacity-90 transition text-white font-semibold">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="pb-8 text-sm opacity-70">© 2025 Shadnan | Techno Glitched V3</footer>
+
+  <!-- Background techno music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_5f6a3ff2cb.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Message alert
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      alert("Thanks for reaching out, Shadnan will contact you soon! 💙");
+    });
+
+    // Reveal on scroll
+    function reveal() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let revealTop = reveals[i].getBoundingClientRect().top;
+        let revealPoint = 100;
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Theme switch
+    const body = document.body;
+    document.getElementById("toggleTheme").addEventListener("click", () => {
+      body.classList.toggle("dark");
+      body.classList.toggle("light");
+    });
+    document.getElementById("blueTheme").addEventListener("click", () => {
+      body.classList.remove("theme-purple", "theme-cyan");
+      body.classList.add("theme-blue");
+    });
+    document.getElementById("purpleTheme").addEventListener("click", () => {
+      body.classList.remove("theme-blue", "theme-cyan");
+      body.classList.add("theme-purple");
+    });
+    document.getElementById("cyanTheme").addEventListener("click", () => {
+      body.classList.remove("theme-blue", "theme-purple");
+      body.classList.add("theme-cyan");
+    });
+
+    // Techno particles background
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    let particlesArray;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+
+    class Particle {
+      constructor(x, y, directionX, directionY, size, color) {
+        this.x = x;
+        this.y = y;
+        this.directionX = directionX;
+        this.directionY = directionY;
+        this.size = size;
+        this.color = color;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+        ctx.fillStyle = getComputedStyle(document.documentElement)
+          .getPropertyValue("--accent");
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+      }
+      update() {
+        if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+        if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+        this.x += this.directionX;
+        this.y += this.directionY;
+        this.draw();
+      }
+    }
+
+    function init() {
+      particlesArray = [];
+      const numParticles = 100;
+      for (let i = 0; i < numParticles; i++) {
+        let size = Math.random() * 2 + 1;
+        let x = Math.random() * (innerWidth - size * 2);
+        let y = Math.random() * (innerHeight - size * 2);
+        let directionX = (Math.random() * 0.5) - 0.25;
+        let directionY = (Math.random() * 0.5) - 0.25;
+        let color = "#00bfff";
+        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+      }
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+      }
+    }
+
+    init();
+    animate();
+  </script>
+</body>
+</html>
